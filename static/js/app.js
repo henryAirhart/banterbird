@@ -15,9 +15,10 @@ function submitPost() {
 
 window.onload = async () => {
     try {
+        alert('Welcome to Banterbird!')
         const response = await fetch("/api/posts");
         const posts = await response.json();
-        post.forEach((post) => renderPost(post));
+        posts.forEach((post) => renderPost(post));
     } catch (error) {
         console.error("Error fetching posts:", error);
     }
