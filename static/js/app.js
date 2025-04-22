@@ -7,15 +7,26 @@ function renderPost(post) {
     document.getElementById("feed").appendChild(template);
 }
 
-function submitPost() {
+async function submitPost() {
     const message = document.getElementById("postInput").value;
-    console.log("Would post:", message);
-    alert("Tweet submitted (not really yet)");
+    try{
+        const response = await fetch("/api/add_post", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                username,
+                message
+            })
+        });
+    } catch (error) {
+        console.log("🤌There was an error", error)
+    }
 }
 
 window.onload = async () => {
     try {
-        alert('Welcome to Banterbird!')
         const response = await fetch("/api/posts");
         const posts = await response.json();
         posts.forEach((post) => renderPost(post));
