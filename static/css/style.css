@@ -1,0 +1,36 @@
+body {
+    font-family: sans-serif;
+    background-color: #5c7e13;
+    padding: 20px;
+}
+
+#feed {
+    margin-top: 30px;
+}
+
+#postInput {
+    background-color: black;
+    color: #dddddd;
+}
+
+.post {
+    border-style: solid;
+    border-width: 2px;
+    border-color: #dddddd;
+    border-radius:  5px;
+    padding: 10px;
+    color: #dddddd;
+    background-color: #333333;
+    display: block;
+    width: 800px;
+}
+
+hr {
+    border-top-color: #dddddd;
+}
+
+button {
+    background-color: black;
+    color: #dddddd;
+    border-radius: 20px;
+}
