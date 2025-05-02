@@ -1,4 +1,8 @@
-const username = "admin";
+let username = localStorage.getItem('username');
+if (!username) {
+    window.location.href = '/login';
+}
+
 
 function renderPost(post, isNew = false) {
     const template = document.getElementById("post-template").content.cloneNode(true);
@@ -38,6 +42,7 @@ window.onload = async () => {
         const response = await fetch("/api/posts");
         const posts = await response.json();
         posts.forEach((post) => renderPost(post));
+        document.getElementById('username').innerText = username;
     } catch (error) {
         console.error("Error fetching posts:", error);
     }
